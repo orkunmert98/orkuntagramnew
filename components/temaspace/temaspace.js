@@ -1,14 +1,11 @@
 import React from 'react'
-import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import LOGO from "../assets/flame.png"
+import {Parallax, ParallaxLayer} from 'react-spring/renderprops-addons'
+import LOGO from "../../assets/flame.png"
 import Grid from '@material-ui/core/Grid';
-import { ServerStyleSheets } from '@material-ui/core/styles';
-import Header from "../components/header/header"
-import Document, { Html, Head, Main, NextScript } from 'next/document';
 import Button from '@material-ui/core/Button';
-import Phone from "../assets/phone.png"
-import TEXT from "../components/bananas/index"
-
+import Phone from "../../assets/phone.png.png"
+import TEXT from "../bananas/index"
+import "./styles.css"
 // Little helpers ...
 const url = (name, wrap = false) => `${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`
 const Pink = ({ children }) => <span style={{ color: '#FF6AC1' }}>{children}</span>
@@ -19,25 +16,9 @@ const Blue = ({ children }) => <span style={{ color: '#57C7FF' }}>{children}</sp
 const Gray = ({ children }) => <span style={{ color: '#909090' }}>{children}</span>
 
 class Tema extends React.Component {
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  render() {
+    render() {
       return (
           <div style={{position:"static",height:"100%",width:"100%"} }>
-
-
         <Parallax ref={ref => (this.parallax = ref)} pages={3} >
           <ParallaxLayer offset={1} speed={1} style={{ backgroundColor: '#805E73' }} />
           <ParallaxLayer offset={2} speed={1} style={{ backgroundColor: '#87BCDE' }} />
@@ -146,14 +127,9 @@ style={{margin:-30}}
             <img src={url('clients-main')} style={{ width: '50%' }} />
           </ParallaxLayer>
         </Parallax>
-
       
-     
         </div>
- 
-        
- 
- )
+      )
     }
   }
   

@@ -1,0 +1,19 @@
+@media screen and (max-width: 992px) {
+    .ucak{
+       
+      width: 45%;
+      height: 45%;
+    }
+  }
+  .ucak{
+
+  width: 50%;
+  height: 50%;
+}
+@media screen and (max-width: 600px) {
+    .ucak{
+     
+      width: 40%;
+      height: 40%;
+    }
+  }
