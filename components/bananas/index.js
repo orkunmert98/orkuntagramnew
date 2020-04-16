@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react'
-
+import Link from "next/link"
 import { useTransition, animated } from 'react-spring'
 
 import Button from '@material-ui/core/Button';
@@ -72,15 +72,15 @@ style={{boxSizing:"border-box"}}
 <div style={{paddingLeft:20 ,boxSizing:"border-box",margin:20 ,width:200,flexDirection:"column",display:"flex"} }>
 
 <div style={{marginBottom:20}}>
-
+<Link href="/login">
 <Button variant="contained" color="secondary"  size="large" >
-          
-            GET STARTED
+          <h1> GET STARTED</h1>
+           
           
           
           </Button>
 
-
+          </Link>
        
           </div>
 <ExpandMoreIcon color="secondary" style={{fontSize:"9rem", margin:0}} className={"forhover"} ></ExpandMoreIcon>

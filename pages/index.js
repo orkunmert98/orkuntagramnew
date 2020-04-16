@@ -4,10 +4,15 @@ import LOGO from "../assets/flame.png"
 import Grid from '@material-ui/core/Grid';
 import { ServerStyleSheets } from '@material-ui/core/styles';
 import Header from "../components/header/header"
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Head from 'next/head'
 import Button from '@material-ui/core/Button';
 import Phone from "../assets/phone.png"
 import TEXT from "../components/bananas/index"
+
+
+import NProgress from 'nprogress';
+import Router from "next/router";
+import PropTypes from 'prop-types';
 
 // Little helpers ...
 const url = (name, wrap = false) => `${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`
@@ -36,7 +41,13 @@ class Tema extends React.Component {
   render() {
       return (
           <div style={{position:"static",height:"100%",width:"100%"} }>
-
+<Head>
+        <title>MERT Apps</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="robots" content="index,follow"/>
+        <meta name="description" content="this page is home page for social media apps"></meta>
+       
+</Head>
 
         <Parallax ref={ref => (this.parallax = ref)} pages={3} >
           <ParallaxLayer offset={1} speed={1} style={{ backgroundColor: '#805E73' }} />
@@ -45,37 +56,37 @@ class Tema extends React.Component {
           <ParallaxLayer offset={0} speed={0} factor={3} style={{ backgroundImage: url('stars', true), backgroundSize: 'cover' }} />
   
           <ParallaxLayer offset={1.3} speed={-0.3} style={{ pointerEvents: 'none' }}>
-            <img src={url('satellite4')} style={{ width: '15%', marginLeft: '70%' }} />
+            <img src={url('satellite4')} style={{ width: '15%', marginLeft: '70%' }}  alt=""/>
           </ParallaxLayer>
   
           <ParallaxLayer offset={1} speed={0.8} style={{ opacity: 0.1 }}>
-            <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '55%' }} />
-            <img src={url('cloud')} style={{ display: 'block', width: '10%', marginLeft: '15%' }} />
+            <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '55%' }} alt=""/>
+            <img src={url('cloud')} style={{ display: 'block', width: '10%', marginLeft: '15%' }} alt=""/>
           </ParallaxLayer>
   
           <ParallaxLayer offset={1.75} speed={0.5} style={{ opacity: 0.1 }}>
-            <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '70%' }} />
-            <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '40%' }} />
+            <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '70%' }} alt=""/>
+            <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '40%' }} alt=""/>
           </ParallaxLayer>
   
           <ParallaxLayer offset={1} speed={0.2} style={{ opacity: 0.2 }}>
-            <img src={url('cloud')} style={{ display: 'block', width: '10%', marginLeft: '10%' }} />
-            <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '75%' }} />
+            <img src={url('cloud')} style={{ display: 'block', width: '10%', marginLeft: '10%' }} alt=""/>
+            <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '75%' }} alt=""/>
           </ParallaxLayer>
   
           <ParallaxLayer offset={1.6} speed={-0.1} style={{ opacity: 0.4 }}>
-            <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '60%' }} />
-            <img src={url('cloud')} style={{ display: 'block', width: '25%', marginLeft: '30%' }} />
-            <img src={url('cloud')} style={{ display: 'block', width: '10%', marginLeft: '80%' }} />
+            <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '60%' }} alt="" />
+            <img src={url('cloud')} style={{ display: 'block', width: '25%', marginLeft: '30%' }} alt=""/>
+            <img src={url('cloud')} style={{ display: 'block', width: '10%', marginLeft: '80%' }}  alt=""/>
           </ParallaxLayer>
   
           <ParallaxLayer offset={2.6} speed={0.4} style={{ opacity: 0.6 }}>
-            <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '5%' }} />
-            <img src={url('cloud')} style={{ display: 'block', width: '15%', marginLeft: '75%' }} />
+            <img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '5%' }} alt=""/>
+            <img src={url('cloud')} style={{ display: 'block', width: '15%', marginLeft: '75%' }} alt=""/>
           </ParallaxLayer>
   
           <ParallaxLayer offset={2.5} speed={-0.4} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
-            <img src={url('earth')} style={{ width: '50%' }} />
+            <img src={url('earth')} style={{ width: '50%' }} alt=""/>
           </ParallaxLayer>
   
           <ParallaxLayer
@@ -103,10 +114,12 @@ style={{margin:-30}}
             >
         <Grid item lg={6}>
        
-        <img src={LOGO} style={{width:"100%"}} />
+        <img src={LOGO} style={{width:"100%"}} alt=""/>
 </Grid>
 <Grid item lg={6} stlye={{width:"100%" }}>
-<TEXT ></TEXT>
+<h1><TEXT ></TEXT></h1>
+
+
 </Grid>
 </Grid>
           
@@ -128,7 +141,7 @@ style={{margin:-30}}
 
              <img src={Phone} 
            
-            style={{ position:"absolute" }}  className="phone">
+            style={{ position:"absolute" }}  className="phone" alt="">
 
 
 
@@ -143,7 +156,7 @@ style={{margin:-30}}
             speed={-0}
             style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             onClick={() => this.parallax.scrollTo(0)}>
-            <img src={url('clients-main')} style={{ width: '50%' }} />
+            <img src={url('clients-main')} style={{ width: '50%' }} alt="" />
           </ParallaxLayer>
         </Parallax>
 

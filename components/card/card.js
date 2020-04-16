@@ -115,7 +115,7 @@ console.log("kart")
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            R
+            <h1>R</h1>
           </Avatar>
         }
         action={

@@ -6,9 +6,12 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Modals from "../components/modal/modal"
+import Head from 'next/head'
+
 import ANİMATE from "../components/advancedanimation/index"
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import NProgress from "next-nprogress";
 import nookies from 'nookies'
 import Paper from '@material-ui/core/Paper';
 import IMAGE from "../assets/wall2.jpg"
@@ -126,6 +129,14 @@ props.erroraction(err.graphQLErrors[0].extensions.exception.Signerrors)
 
 return (
     <Grid container component="main" className={classes.root}>
+      <Head>
+        <title>MERT's App</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="robots" content="index,follow"/>
+        <meta name="description" content="this page is home page for social media app"></meta>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"></meta>
+</Head>
+
       <CssBaseline />
       <Grid item xs={0} sm={12} md={7} className={classes.image}  >
 

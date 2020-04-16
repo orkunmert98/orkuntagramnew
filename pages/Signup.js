@@ -10,6 +10,7 @@ import ANİMATE from "../components/advancedanimation/index"
 import nookies from 'nookies'
 import Paper from '@material-ui/core/Paper';
 import Router from "next/router"
+import Head from 'next/head'
 import IMAGE from "../assets/phone.jpg"
 import { useRouter } from 'next/router'
 import Link from 'next/link'
@@ -128,6 +129,13 @@ props.erroraction({error:"bir hata oluştu tekrar deneyiniz"})
 
 return (
     <Grid container component="main" className={classes.root} style={{marginTop:60}}>
+     <Head>
+        <title>MERT's App</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="robots" content="index,follow"/>
+        <meta name="description" content="this page is home page for social media app"></meta>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"></meta>
+</Head>
       <CssBaseline />
       <Grid item xs={8} sm={4} md={7} className={classes.image} >
 

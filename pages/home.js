@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import gql from "graphql-tag"
 import { POST_MUTATİON, POST_QUERY, DELETE_POST } from "../QueryAndMutations"
 import { useMutation, useQuery, useLazyQuery } from "@apollo/react-hooks"
-
+import Head from 'next/head'
 import PostForm from "../components/createpostform/postform"
 import Grid from '@material-ui/core/Grid';
 import Spinner from "../components/spinner/spinner"
-
+import Link from 'next/link'
 import { addpostaction, adderroraction } from "../redux/post.reducer/post.reducer"
 import Card from "../components/card/card"
 
@@ -60,7 +60,17 @@ function Home(props) {
 
     
     return (
+        
         <div style={{ marginTop: 75 }}>
+            
+            <Head>
+        <title>MERT's App</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="robots" content="index,follow"/>
+        <meta name="description" content="this page is home page for social media app"></meta>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"></meta>
+</Head>
+            
             {props.loading ? (
                 <Spinner></Spinner>
 

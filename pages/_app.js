@@ -5,38 +5,71 @@ import withRedux from "next-redux-wrapper"
 import {createHttpLink} from "apollo-link-http"
 import {compose} from "redux"
 import decode from "jwt-decode"
-
+import Router from 'next/router'
+import Spinner from "../components/spinner/spinner"
+import Head from 'next/head'
+import NProgress from 'nprogress'
 import {setContext} from "apollo-link-context"
 import nookies from 'nookies'
 import "../components/bananas/styles.css"
 import {makeStore} from "../redux/root.reducer"
 
+
+
 import "../components/animation2/styles.css"
 import Header from "../components/header/header"
 import "../global.css"
 import { ThemeProvider } from '@material-ui/core/styles';
-import Router from 'next/router'
+
 import withApollo from "next-with-apollo"
 import {ApolloProvider} from "@apollo/react-hooks"
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import ApolloClient from "apollo-client"
 
 
 
-const myApp =( {Component,pageProps,store,apollo})=>{
 
- 
+const myApp =( {Component,pageProps,store,apollo})=>{
+const [loading,setloading]=React.useState(false)
+  Router.events.on('routeChangeStart', url => {
+    console.log(`Loading: ${url}`)
+    setloading(true)
+  })
+  Router.events.on('routeChangeComplete', () =>  setloading(false))
+  Router.events.on('routeChangeError', () =>  setloading(false))
+  
+
+  
 
         
              return(
+
 <ApolloProvider client={apollo}>
 
 <Provider store={store}>
 
+{loading?(
+
+<Container>
+<Head>
+        <title>MERT's App</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="robots" content="index, noindex, nofollow, follow"/>
+        <meta name="description" content="this app is about social media"></meta>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"></meta>
+</Head>
+<Header></Header>
+<Spinner></Spinner></Container>):(
+  <Container>
 <Header></Header>
 
 <Component {...pageProps} ></Component>
+</Container>
+
+
+
+)}
 
 
 </Provider>
@@ -56,7 +89,7 @@ const myApp =( {Component,pageProps,store,apollo})=>{
 
 
 const httplink= createHttpLink({
-    uri:"http://localhost:5000"
+    uri:"https://merngorkun123.herokuapp.com/"
   
   })
 
